@@ -1,7 +1,12 @@
 import { useState, ChangeEvent } from "react"
-import WeatherInput from "../../components/WeatherInput"
-import { Homework29Wrapper, InputButtonWrapper, ValueWrapper } from "./styles"
-import WeatherButton from "../../components/WeatherButton"
+import {
+  ButtonWrapper,
+  Homework29Wrapper,
+  InputButtonWrapper,
+  ValueWrapper,
+} from "./styles"
+import Input from "../../components/Input"
+import Button from "../../components/Button"
 
 function Homework29() {
   const [value, setValue] = useState<string>("")
@@ -13,12 +18,24 @@ function Homework29() {
   return (
     <Homework29Wrapper>
       <InputButtonWrapper>
-        <WeatherInput
+        <Input
           placeholder="Enter"
           onChange={onChangeValue}
           value={value}
+          labelName="Value"
         />
-        <WeatherButton name="Display" onClick={() => setValueDisplay(value)} />
+        <ButtonWrapper>
+          <Button
+            name="Display"
+            onClick={() => {
+              if (value.length === 0) {
+                alert("Enter value")
+                return
+              }
+              setValueDisplay(value)
+            }}
+          />
+        </ButtonWrapper>
       </InputButtonWrapper>
       {valueDisplay && <ValueWrapper>{valueDisplay}</ValueWrapper>}
     </Homework29Wrapper>

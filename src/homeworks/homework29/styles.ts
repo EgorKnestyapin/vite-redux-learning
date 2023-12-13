@@ -20,3 +20,8 @@ export const ValueWrapper = styled.p`
   font-size: 30px;
   color: white;
 `
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  width: 200px;
+`

@@ -1,12 +1,12 @@
-import { useState, ChangeEvent } from "react"
+import { useState, ChangeEvent, MouseEvent } from "react"
 import {
   ButtonWrapper,
   Homework29Wrapper,
   InputButtonWrapper,
   ValueWrapper,
 } from "./styles"
-import Input from "../../components/Input"
-import Button from "../../components/Button"
+import Button from "components/Button"
+import Input from "components/Input"
 
 function Homework29() {
   const [value, setValue] = useState<string>("")
@@ -27,7 +27,8 @@ function Homework29() {
         <ButtonWrapper>
           <Button
             name="Display"
-            onClick={() => {
+            onClick={(event: MouseEvent<HTMLButtonElement>) => {
+              event.preventDefault()
               if (value.length === 0) {
                 alert("Enter value")
                 return

@@ -1,5 +1,5 @@
+import { WeatherIcon } from "assets"
 import styled from "styled-components"
-import { WeatherIcon } from "../../assets"
 
 export const Homework29Wrapper = styled.div`
   display: flex;

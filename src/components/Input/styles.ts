@@ -7,20 +7,22 @@ interface InputComponentsProps {
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: white;
-  gap: 8px;
+  gap: 7px;
+  width: 100%;
 `
 
 export const LabelComponent = styled.label`
+  font-size: 16px;
   color: black;
 `
 
 export const InputStyle = styled.input<InputComponentsProps>`
-  display: flex;
-  height: 48px;
-  padding: 12px;
-  cursor: ${(props) => (props.disabled ? "not-allowed" : "auto")};
+  width: 100%;
+  height: 50px;
+  padding: 20px;
   border: ${({ $error }) => (!!$error ? "1px solid red" : "1px solid black")};
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "default")};
+  outline: none;
 `
 
 export const ErrorContainer = styled.div`

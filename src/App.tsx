@@ -1,11 +1,11 @@
-import Homework29 from "./homeworks/homework29"
+import Lesson30 from "lessons/lesson30"
 import GlobalStyles from "./styles/GlobalStyles"
 
 function App() {
   return (
     <div>
       <GlobalStyles />
-      <Homework29 />
+      <Lesson30 />
     </div>
   )
 }

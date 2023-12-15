@@ -1,5 +1,5 @@
-import Lesson30 from "lessons/lesson30"
-import GlobalStyles from "./styles/GlobalStyles"
+import Lesson30 from "lessons/lesson30";
+import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <GlobalStyles />
       <Lesson30 />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

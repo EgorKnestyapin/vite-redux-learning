@@ -1,11 +1,11 @@
-import Lesson30 from "lessons/lesson30";
 import GlobalStyles from "./styles/GlobalStyles";
+import Homework31 from "homeworks/homework31";
 
 function App() {
   return (
     <div>
       <GlobalStyles />
-      <Lesson30 />
+      <Homework31 />
     </div>
   );
 }

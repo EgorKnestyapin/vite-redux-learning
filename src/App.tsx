@@ -1,13 +1,13 @@
-import Homework29 from "./homeworks/homework29"
-import GlobalStyles from "./styles/GlobalStyles"
+import Lesson30 from "lessons/lesson30";
+import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
     <div>
       <GlobalStyles />
-      <Homework29 />
+      <Lesson30 />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

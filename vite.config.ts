@@ -1,6 +1,6 @@
-import { defineConfig } from "vitest/config"
-import react from "@vitejs/plugin-react"
-import path from "path"
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +13,7 @@ export default defineConfig({
       store: path.resolve(__dirname, "src/store"),
       styles: path.resolve(__dirname, "src/styles"),
       lessons: path.resolve(__dirname, "src/lessons"),
+      pages: path.resolve(__dirname, "src/pages"),
     },
   },
   server: {
@@ -28,4 +29,4 @@ export default defineConfig({
     setupFiles: "src/setupTests",
     mockReset: true,
   },
-})
+});

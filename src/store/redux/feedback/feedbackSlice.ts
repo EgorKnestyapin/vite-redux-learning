@@ -16,9 +16,8 @@ const feedbackSlice = createSlice({
     plusDislike: (state: FeedbackInitialState) => {
       state.dislikesCount += 1;
     },
-    resetResults: (state: FeedbackInitialState) => {
-      state.likesCount = 0;
-      state.dislikesCount = 0;
+    resetResults: () => {
+      initialState;
     },
   },
 });

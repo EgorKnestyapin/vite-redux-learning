@@ -8,15 +8,13 @@ function Users() {
 
   return (
     <UsersWrapper>
-      {users.map((user) => {
+      {users.map((user: User) => {
         return (
-          <>
-            <CardContainer>
-              <CardText>First/Last name: {user.firstLastName}</CardText>
-              <CardText>Age: {user.age}</CardText>
-              <CardText>Job title: {user.jobTitle}</CardText>
-            </CardContainer>
-          </>
+          <CardContainer key={user.firstLastName + Math.random()}>
+            <CardText>First/Last name: {user.firstLastName}</CardText>
+            <CardText>Age: {user.age}</CardText>
+            <CardText>Job title: {user.jobTitle}</CardText>
+          </CardContainer>
         );
       })}
     </UsersWrapper>

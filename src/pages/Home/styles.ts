@@ -5,6 +5,7 @@ export const HomePageWrapper = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
+  align-items: stretch;
 `;
 
 export const UserForm = styled.form`
@@ -12,8 +13,7 @@ export const UserForm = styled.form`
   flex-direction: column;
   gap: 20px;
   min-width: 500px;
-  min-height: 300px;
-  height: 500px;
+  height: fit-content;
   padding: 20px;
   border-radius: 8px;
   border: 1px solid black;

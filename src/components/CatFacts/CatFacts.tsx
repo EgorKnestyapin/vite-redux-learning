@@ -13,6 +13,7 @@ import {
   catFactsActions,
   getCatFacts,
 } from "store/redux/catFacts/catFactsSlice";
+import { v4 } from "uuid";
 
 function CatFacts() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function CatFacts() {
         {data.length > 0 && (
           <>
             {data.map((catFact) => (
-              <CatFactButtonContrainer>
+              <CatFactButtonContrainer key={v4()}>
                 <CatFactsElement>{catFact.fact}</CatFactsElement>
                 <ButtonWrapper>
                   <Button

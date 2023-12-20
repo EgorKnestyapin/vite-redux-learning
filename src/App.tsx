@@ -4,6 +4,8 @@ import GlobalStyles from "./styles/GlobalStyles";
 import Home from "pages/Home";
 import Users from "pages/Users";
 import Homework33 from "homeworks/homework33";
+import JokeGenerator from "components/JokeGenerator";
+import CatFacts from "components/CatFacts";
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         </Routes>
       </Layout> */}
       {/* <Homework31 /> */}
-      <Homework33 />
+      {/* <Homework33 /> */}
+      {/* <JokeGenerator /> */}
+      <CatFacts />
     </>
   );
 }

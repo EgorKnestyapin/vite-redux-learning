@@ -15,12 +15,12 @@ import { AppDispatch } from "store/store";
 import { weatherAppSelector } from "store/redux/weatherApp/selectors";
 import WeatherInfo from "../WeatherInfo";
 import WeatherContainerButton from "../WeatherContainerButton";
+import WeatherError from "../WeatherError";
 
 function WeatherHome() {
   const [city, setCity] = useState<string>("");
   const dispatch: AppDispatch = useDispatch();
-  const { weatherData, weatherDataList, isLoading, error } =
-    useSelector(weatherAppSelector);
+  const { weatherData, isLoading, error } = useSelector(weatherAppSelector);
 
   return (
     <WeatherHomeWrapper>
@@ -61,6 +61,7 @@ function WeatherHome() {
           </ButtonsContainer>
         </WeatherInfo>
       )}
+      {error && <WeatherError />}
     </WeatherHomeWrapper>
   );
 }

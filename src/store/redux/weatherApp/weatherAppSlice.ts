@@ -11,12 +11,21 @@ const weatherAppInitialState: WeatherAppState = {
 
 export const getWeatherInfo = createAsyncThunk(
   "WEATHER_APP/getWeatherInfo",
-  async (city: string) => {
+  async (city: string, { rejectWithValue }) => {
     const APP_ID: string = "339eefdb8be5d321edc00550315211c1";
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APP_ID}`
     );
-    return await response.json();
+    console.log(response);
+
+    const result = await response.json();
+    console.log(result);
+
+    if (!response.ok) {
+      return rejectWithValue(result);
+    }
+
+    return result;
   }
 );
 
@@ -57,6 +66,8 @@ const weatherAppSlice = createSlice({
         getWeatherInfo.fulfilled,
         (state: WeatherAppState, action: PayloadAction<any>) => {
           state.isLoading = false;
+          console.log(action.payload);
+
           state.weatherData = {
             id: v4(),
             cityName: action.payload.name,

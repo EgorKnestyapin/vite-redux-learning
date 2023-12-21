@@ -13,11 +13,18 @@ import {
   catFactsActions,
   getCatFacts,
 } from "store/redux/catFacts/catFactsSlice";
-import { v4 } from "uuid";
+import { CatFact } from "store/redux/catFacts/types";
+import { useEffect } from "react";
+import { AppDispatch } from "store/store";
 
 function CatFacts() {
-  const dispatch = useDispatch();
-  const { data, isLoading } = useSelector(catFactsState);
+  const dispatch: AppDispatch = useDispatch();
+  const { data, isLoading, error } = useSelector(catFactsState);
+  useEffect(() => {
+    if (!!error) {
+      alert("Ошибка сети");
+    }
+  }, [error]);
 
   return (
     <CatFactsWrapper>
@@ -25,21 +32,21 @@ function CatFacts() {
         <Button
           name="Get Cat Fact"
           onClick={() => {
-            dispatch(getCatFacts() as any);
+            dispatch(getCatFacts());
           }}
           disabled={isLoading}
         />
         {isLoading && <Paragraph>Loading...</Paragraph>}
         {data.length > 0 && (
           <>
-            {data.map((catFact) => (
-              <CatFactButtonContrainer key={v4()}>
+            {data.map((catFact: CatFact) => (
+              <CatFactButtonContrainer key={catFact.id}>
                 <CatFactsElement>{catFact.fact}</CatFactsElement>
                 <ButtonWrapper>
                   <Button
                     name="Delete fact"
                     onClick={() => {
-                      dispatch(catFactsActions.deleteFact(catFact.fact));
+                      dispatch(catFactsActions.deleteFact(catFact.id));
                     }}
                   />
                 </ButtonWrapper>

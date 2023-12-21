@@ -3,10 +3,12 @@ import { colors } from "styles/colors";
 
 interface ButtonComponentProps {
   $isRedFont?: boolean | undefined;
+  $isWidth100?: boolean | undefined;
 }
 
 export const ButtonComponent = styled.button<ButtonComponentProps>`
-  width: 146px;
+  min-width: 146px;
+  width: ${(props) => (props.$isWidth100 ? "100%" : "fit-content")};
   height: fit-content;
   margin: 0;
   padding: 12px 40px;

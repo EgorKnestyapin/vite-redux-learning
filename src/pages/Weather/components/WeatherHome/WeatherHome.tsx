@@ -1,42 +1,27 @@
 import { ChangeEvent, useState } from "react";
 import WeatherButton from "../WeatherButton";
 import WeatherInput from "../WeatherInput";
-import { InputButtonWrapper, WeatherHomeWrapper } from "./styles";
-import { useDispatch } from "react-redux";
-import { getWeatherInfo } from "store/redux/weatherApp/weatherAppSlice";
+import {
+  ButtonsContainer,
+  InputButtonWrapper,
+  WeatherHomeWrapper,
+} from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getWeatherInfo,
+  weatherAppActions,
+} from "store/redux/weatherApp/weatherAppSlice";
 import { AppDispatch } from "store/store";
+import { weatherAppSelector } from "store/redux/weatherApp/selectors";
+import WeatherInfo from "../WeatherInfo";
+import WeatherContainerButton from "../WeatherContainerButton";
 
 function WeatherHome() {
   const [city, setCity] = useState<string>("");
   const dispatch: AppDispatch = useDispatch();
-  // const onChangeCity = (event: ChangeEvent<HTMLInputElement>) => {
-  //   setCity(event.target.value);
-  // };
+  const { weatherData, weatherDataList, isLoading, error } =
+    useSelector(weatherAppSelector);
 
-  // const getWeatherInfo = async () => {
-  //   if (city.length === 0) {
-  //     alert("Enter city name");
-  //     return;
-  //   }
-  //   setWeatherError("");
-  //   setWeatherInfo(undefined);
-  //   setLoading(true);
-  //   const response = await fetch(URL_WEATHER);
-  //   const data = await response.json();
-  //   setLoading(false);
-  //   if (response.ok) {
-  //     const tempFromData = data.main.temp;
-  //     const feelsLikeTempFromData = data.main.feels_like;
-  //     setWeatherInfo({
-  //       temp: `${Math.round(tempFromData - 273.15)}°`,
-  //       icon: `${data.weather[0].icon}`,
-  //       cityName: `${data.name}`,
-  //       feelsLike: `${Math.round(feelsLikeTempFromData - 273.15)}°`,
-  //     });
-  //   } else {
-  //     setWeatherError(data.message);
-  //   }
-  // };
   return (
     <WeatherHomeWrapper>
       <InputButtonWrapper>
@@ -53,6 +38,29 @@ function WeatherHome() {
           }}
         />
       </InputButtonWrapper>
+      {isLoading && <h1 style={{ color: "white" }}>Loading...</h1>}
+      {weatherData && (
+        <WeatherInfo
+          temp={weatherData.temp}
+          icon={weatherData.icon}
+          cityName={weatherData.cityName}
+        >
+          <ButtonsContainer>
+            <WeatherContainerButton
+              onClick={() => {
+                dispatch(weatherAppActions.saveWeatherData(weatherData));
+              }}
+              name="Save"
+            />
+            <WeatherContainerButton
+              onClick={() => {
+                dispatch(weatherAppActions.deleteWeatherDataHomePage());
+              }}
+              name="Delete"
+            />
+          </ButtonsContainer>
+        </WeatherInfo>
+      )}
     </WeatherHomeWrapper>
   );
 }

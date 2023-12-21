@@ -7,6 +7,7 @@ function WeatherButton({
   type = "submit",
   onClick,
   isRedFont,
+  isWidth100,
 }: ButtonProps) {
   return (
     <ButtonComponent
@@ -14,6 +15,7 @@ function WeatherButton({
       type={type}
       onClick={onClick}
       $isRedFont={isRedFont}
+      $isWidth100={isWidth100}
     >
       {name}
     </ButtonComponent>

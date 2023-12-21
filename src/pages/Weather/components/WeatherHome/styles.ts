@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "styles/colors";
 
 export const WeatherHomeWrapper = styled.div`
   display: flex;
@@ -15,4 +16,9 @@ export const InputButtonWrapper = styled.div`
   width: 100%;
   margin-top: 120px;
   gap: 12px;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 95px;
 `;

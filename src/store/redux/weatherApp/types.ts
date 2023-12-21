@@ -6,7 +6,7 @@ export interface WeatherAppState {
 }
 
 export interface WeatherInfoData {
-  id: number;
+  id: string;
   temp: string;
   icon: string;
   cityName: string;

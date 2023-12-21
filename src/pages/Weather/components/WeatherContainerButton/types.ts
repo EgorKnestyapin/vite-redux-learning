@@ -3,6 +3,4 @@ export interface ButtonProps {
   type?: "submit" | "reset" | "button" | undefined;
   onClick?: () => void;
   disabled?: boolean;
-  isRedFont?: boolean;
-  isWidth100?: boolean
 }

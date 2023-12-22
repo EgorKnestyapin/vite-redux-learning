@@ -79,7 +79,6 @@ const weatherAppSlice = createSlice({
         getWeatherInfo.rejected,
         (state: WeatherAppState, action: PayloadAction<any>) => {
           state.isLoading = false;
-          state.weatherData = undefined;
           state.error = {
             cod: action.payload.cod,
             message: action.payload.message,

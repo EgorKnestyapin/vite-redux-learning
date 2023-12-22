@@ -5,6 +5,7 @@ import {
   ButtonWrapper,
   ButtonsContainer,
   InputButtonWrapper,
+  LoadingComponent,
   WeatherHomeWrapper,
 } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -44,7 +45,7 @@ function WeatherHome() {
           />
         </ButtonWrapper>
       </InputButtonWrapper>
-      {isLoading && <h1 style={{ color: "white" }}>Loading...</h1>}
+      {isLoading && <LoadingComponent>Loading...</LoadingComponent>}
       {weatherData && (
         <WeatherInfo
           temp={weatherData.temp}

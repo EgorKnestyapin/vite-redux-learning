@@ -27,7 +27,7 @@ function Homework36() {
 
   useEffect(() => {
     getRandomUser();
-    const intervalID: NodeJS.Timeout = setInterval(getRandomUser, 30000);
+    const intervalID: NodeJS.Timeout = setInterval(getRandomUser, 3000);
     intervalRef.current = intervalID;
   }, []);
 

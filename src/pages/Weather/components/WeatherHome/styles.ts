@@ -26,3 +26,7 @@ export const ButtonsContainer = styled.div`
 export const ButtonWrapper = styled.div`
   width: 146px;
 `;
+
+export const LoadingComponent = styled.h1`
+  color: ${colors.white};
+`;

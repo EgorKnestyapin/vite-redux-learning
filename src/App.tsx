@@ -11,7 +11,7 @@ function App() {
       <GlobalStyles />
       <Weather>
         <Routes>
-          <Route path="/" element={<WeatherHome />} />
+          <Route path="/" element={<Homework36 />} />
           <Route path="/weathers" element={<Weathers />} />
           <Route path="*" element="Page is not found" />
         </Routes>

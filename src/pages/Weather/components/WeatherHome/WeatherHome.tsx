@@ -34,7 +34,10 @@ function WeatherHome() {
         <WeatherButton
           name="Search"
           onClick={() => {
-            dispatch(getWeatherInfo(city));
+            if (!city.trim()) {
+              alert("Введите название города");
+            }
+            dispatch(getWeatherInfo(city.trim()));
           }}
         />
       </InputButtonWrapper>

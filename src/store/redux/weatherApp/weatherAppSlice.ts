@@ -16,11 +16,7 @@ export const getWeatherInfo = createAsyncThunk(
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APP_ID}`
     );
-    console.log(response);
-
     const result = await response.json();
-    console.log(result);
-
     if (!response.ok) {
       return rejectWithValue(result);
     }
@@ -53,6 +49,9 @@ const weatherAppSlice = createSlice({
       state.weatherDataList = [...state.weatherDataList].filter(
         (weatherInfo: WeatherInfoData) => weatherInfo.id !== action.payload
       );
+    },
+    deleteWeatherErrorCard: (state: WeatherAppState) => {
+      state.error = null;
     },
   },
   extraReducers: (builder) => {

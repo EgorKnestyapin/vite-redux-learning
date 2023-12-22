@@ -3,6 +3,7 @@ import GlobalStyles from "./styles/GlobalStyles";
 import Weather from "pages/Weather";
 import WeatherHome from "pages/Weather/components/WeatherHome";
 import Weathers from "pages/Weather/components/Weathers";
+import Homework36 from "homeworks/homework36";
 
 function App() {
   return (

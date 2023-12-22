@@ -7,8 +7,7 @@ interface ButtonComponentProps {
 }
 
 export const ButtonComponent = styled.button<ButtonComponentProps>`
-  min-width: 146px;
-  width: ${(props) => (props.$isWidth100 ? "100%" : "fit-content")};
+  width: 100%;
   height: fit-content;
   margin: 0;
   padding: 12px 40px;
@@ -21,4 +20,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
     linear-gradient(270deg, #362a84 0.23%, #5936b4 94.2%), #4a319f;
   color: ${colors.white};
   font-size: 18px;
+  &:active {
+    background: red;
+  }
 `;

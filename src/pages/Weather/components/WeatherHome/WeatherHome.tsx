@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from "react";
 import WeatherButton from "../WeatherButton";
 import WeatherInput from "../WeatherInput";
 import {
+  ButtonWrapper,
   ButtonsContainer,
   InputButtonWrapper,
   WeatherHomeWrapper,
@@ -31,15 +32,17 @@ function WeatherHome() {
             setCity(event.target.value);
           }}
         />
-        <WeatherButton
-          name="Search"
-          onClick={() => {
-            if (!city.trim()) {
-              alert("Введите название города");
-            }
-            dispatch(getWeatherInfo(city.trim()));
-          }}
-        />
+        <ButtonWrapper>
+          <WeatherButton
+            name="Search"
+            onClick={() => {
+              if (!city.trim()) {
+                alert("Введите название города");
+              }
+              dispatch(getWeatherInfo(city.trim()));
+            }}
+          />
+        </ButtonWrapper>
       </InputButtonWrapper>
       {isLoading && <h1 style={{ color: "white" }}>Loading...</h1>}
       {weatherData && (

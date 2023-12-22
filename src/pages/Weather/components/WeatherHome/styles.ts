@@ -22,3 +22,7 @@ export const ButtonsContainer = styled.div`
   display: flex;
   gap: 95px;
 `;
+
+export const ButtonWrapper = styled.div`
+  width: 146px;
+`;

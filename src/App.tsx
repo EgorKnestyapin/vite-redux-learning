@@ -1,16 +1,21 @@
 import { Route, Routes } from "react-router-dom";
-import Layout from "components/Layout";
 import GlobalStyles from "./styles/GlobalStyles";
-import Home from "pages/Home";
-import Users from "pages/Users";
-import Homework33 from "homeworks/homework33";
-import JokeGenerator from "components/JokeGenerator";
-import CatFacts from "components/CatFacts";
+import Weather from "pages/Weather";
+import WeatherHome from "pages/Weather/components/WeatherHome";
+import Weathers from "pages/Weather/components/Weathers";
+import Homework36 from "homeworks/homework36";
 
 function App() {
   return (
     <>
       <GlobalStyles />
+      <Weather>
+        <Routes>
+          <Route path="/" element={<WeatherHome />} />
+          <Route path="/weathers" element={<Weathers />} />
+          <Route path="*" element="Page is not found" />
+        </Routes>
+      </Weather>
       {/* <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,7 +26,7 @@ function App() {
       {/* <Homework31 /> */}
       {/* <Homework33 /> */}
       {/* <JokeGenerator /> */}
-      <CatFacts />
+      {/* <CatFacts /> */}
     </>
   );
 }

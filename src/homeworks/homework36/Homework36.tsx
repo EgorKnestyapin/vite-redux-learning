@@ -5,7 +5,7 @@ import WeatherButton from "pages/Weather/components/WeatherButton";
 
 function Homework36() {
   const [user, setUser] = useState<User | undefined>(undefined);
-  const intervalRef: MutableRefObject<NodeJS.Timeout | undefined> = useRef();
+  const [intervalID, setIntervalID] = useState<NodeJS.Timeout>();
 
   const getRandomUser = async () => {
     const response = await fetch("https://randomuser.me/api/");
@@ -27,8 +27,8 @@ function Homework36() {
 
   useEffect(() => {
     getRandomUser();
-    const intervalID: NodeJS.Timeout = setInterval(getRandomUser, 30000);
-    intervalRef.current = intervalID;
+    const intervalID: NodeJS.Timeout = setInterval(getRandomUser, 3000);
+    setIntervalID(intervalID);
   }, []);
 
   return (
@@ -44,7 +44,15 @@ function Homework36() {
             name="Finish randomize"
             isWidth100={true}
             onClick={() => {
-              clearInterval(intervalRef.current);
+              clearInterval(intervalID);
+            }}
+          />
+          <WeatherButton
+            name="Start randomize"
+            isWidth100={true}
+            onClick={() => {
+              const intervalID = setInterval(getRandomUser, 3000);
+              setIntervalID(intervalID);
             }}
           />
         </Homework36Wrapper>
